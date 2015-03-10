@@ -11,6 +11,10 @@
  * @copyright Bastian Allgeier
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
+/**
+ * Support for multiple template engines based on:
+ * https://github.com/lehni/kirbycms by Juerg Lehni <juerg@scratchdisk.com>
+ */
 class Tpl extends Silo {
 
   static public $data = array();
