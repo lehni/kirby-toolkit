@@ -14,6 +14,7 @@
 /**
  * Support for multiple template engines based on:
  * https://github.com/lehni/kirbycms by Juerg Lehni <juerg@scratchdisk.com>
+ * Ported to Kirby 2 by Leo Koppelkamm <hello@leo-koppelkamm.de>
  */
 class Tpl extends Silo {
 
