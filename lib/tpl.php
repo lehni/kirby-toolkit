@@ -20,26 +20,26 @@ class Tpl extends Silo {
 
   static public $data = array();
 
-  static public function load($file, $data = array(), $return = true) {
-    if(!file_exists($file)) return false;
-    $extension = pathinfo($file, PATHINFO_EXTENSION);
-    $engines = c::get('tpl.engines');
-    $engine = $engines[$extension];
+  static public function load($_file, $_data = array(), $_return = true) {
+    if(!file_exists($_file)) return false;
+    $_extension = pathinfo($_file, PATHINFO_EXTENSION);
+    $_engines = c::get('tpl.engines');
+    $_engine = $_engines[$_extension];
 
-    if ($engine) $file = $engine($file);
+    if ($_engine) $_file = $_engine($_file);
 
-    return self::loadFile($file, $data, $return);
+    return self::loadFile($_file, $_data, $_return);
   }
 
-  static public function loadFile($file, $data = array(), $return = true) {
-    if(!file_exists($file)) return false;
+  static public function loadFile($_file, $_data = array(), $_return = true) {
+    if(!file_exists($_file)) return false;
     ob_start();
-    extract(array_merge(static::$data, (array)$data));
-    require($file);
-    $content = ob_get_contents();
+    extract(array_merge(static::$data, (array)$_data));
+    require($_file);
+    $_content = ob_get_contents();
     ob_end_clean();
-    if($return) return $content;
-    echo $content;
+    if($_return) return $_content;
+    echo $_content;
   }
 
 }
