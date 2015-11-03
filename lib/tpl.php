@@ -24,9 +24,11 @@ class Tpl extends Silo {
     if(!file_exists($_file)) return false;
     $_extension = pathinfo($_file, PATHINFO_EXTENSION);
     $_engines = c::get('tpl.engines');
-    $_engine = $_engines[$_extension];
-
-    if ($_engine) $_file = $_engine($_file);
+    
+    if (isset($_engines[$_extension])) {
+      $_engine = $_engines[$_extension];
+      $_file = $_engine($_file);
+    }
 
     return self::loadFile($_file, $_data, $_return);
   }
